@@ -54,6 +54,7 @@
                                             <state key="highlighted" image="Check"/>
                                             <connections>
                                                 <action selector="checkmarkPressed:" destination="vcO-vn-z9q" eventType="touchUpInside" id="LBp-zv-cwk"/>
+                                                <segue destination="NDT-N5-RYt" kind="show" id="1et-Ix-gP3"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-hy-hYk">
@@ -148,7 +149,79 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oga-zi-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201" y="30"/>
+            <point key="canvasLocation" x="1129" y="30"/>
+        </scene>
+        <!--Price Input View-->
+        <scene sceneID="mcU-2w-iCM">
+            <objects>
+                <viewController id="NDT-N5-RYt" customClass="PriceInputView" customModule="ScannerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XwO-Fo-CWQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8L7-La-hUp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p4r-0e-G0J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFz-0U-0Wu">
+                                <rect key="frame" x="16" y="592" width="343" height="55"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="tjT-ue-kyS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GLr-sr-kqT" kind="show" id="jGD-CK-ZiZ"/>
+                                </connections>
+                            </button>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G75-bf-pbw">
+                                <rect key="frame" x="16" y="62" width="343" height="522"/>
+                                <connections>
+                                    <segue destination="xAm-wQ-Xuo" kind="embed" id="xw6-qY-2kc"/>
+                                </connections>
+                            </containerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zS-KN-TO2">
+                                <rect key="frame" x="16" y="28" width="343" height="26"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="priceFieldEdited:" destination="NDT-N5-RYt" eventType="editingDidEnd" id="fcN-m5-A8H"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G75-bf-pbw" firstAttribute="top" secondItem="6zS-KN-TO2" secondAttribute="bottom" constant="8" symbolic="YES" id="DG6-mr-1Rh"/>
+                            <constraint firstItem="6zS-KN-TO2" firstAttribute="top" secondItem="XwO-Fo-CWQ" secondAttribute="bottom" constant="8" symbolic="YES" id="HYy-1e-cea"/>
+                            <constraint firstAttribute="bottom" secondItem="LFz-0U-0Wu" secondAttribute="bottom" constant="20" symbolic="YES" id="O0b-YJ-lOf"/>
+                            <constraint firstItem="G75-bf-pbw" firstAttribute="trailing" secondItem="LFz-0U-0Wu" secondAttribute="trailing" id="SFF-Vt-Dza"/>
+                            <constraint firstItem="6zS-KN-TO2" firstAttribute="leading" secondItem="p4r-0e-G0J" secondAttribute="leadingMargin" id="btV-PN-Zrc"/>
+                            <constraint firstItem="6zS-KN-TO2" firstAttribute="trailing" secondItem="p4r-0e-G0J" secondAttribute="trailingMargin" id="c6X-f7-Ozy"/>
+                            <constraint firstItem="6zS-KN-TO2" firstAttribute="leading" secondItem="G75-bf-pbw" secondAttribute="leading" id="ilT-61-BnH"/>
+                            <constraint firstItem="G75-bf-pbw" firstAttribute="leading" secondItem="LFz-0U-0Wu" secondAttribute="leading" id="kKX-eO-Z6f"/>
+                            <constraint firstItem="6zS-KN-TO2" firstAttribute="trailing" secondItem="G75-bf-pbw" secondAttribute="trailing" id="mdV-ot-mNU"/>
+                            <constraint firstItem="LFz-0U-0Wu" firstAttribute="top" secondItem="G75-bf-pbw" secondAttribute="bottom" constant="8" symbolic="YES" id="y3x-tE-RdZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="priceField" destination="6zS-KN-TO2" id="KUy-d2-gfg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkM-L4-cjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="29.23538230884558"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="EV3-1i-gpj">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="xAm-wQ-Xuo" customClass="BarcodeScanner" customModule="ScannerList" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U1Q-Yr-EQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2756" y="29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TqZ-5I-WAZ">
@@ -173,4 +246,7 @@
         <image name="Check" width="60" height="60"/>
         <image name="Grey Check" width="60" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jGD-CK-ZiZ"/>
+    </inferredMetricsTieBreakers>
 </document>

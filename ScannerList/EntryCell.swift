@@ -43,6 +43,7 @@ class EntryCell: UITableViewCell {
             parent?.entries.remove(at: index)
             currentEntry!.inCart = !currentEntry!.inCart
             parent?.entries.insert(currentEntry!, at: index)
+            parent?.selectedIndex = index
         }
     }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let defaultEntry: Entry = ("Tap to Edit Text...", false, 0)
+
 // MARK: - Typealiases
 
 typealias Entry = (title: String, inCart: Bool, price: NSNumber)
@@ -28,9 +30,10 @@ class ScannerListTVC: UITableViewController, ScannerList {
 
     // MARK: - Properties
 
-    let defaultEntry: Entry = ("Tap to Edit Text...", false, 0)
-
-    var entries = [Entry]()
+    //data model
+    var entries = [defaultEntry] {
+        didSet { self.tableView.reloadData() }
+    }
 
     @IBOutlet var addEntryButton: UIButton?
     
@@ -38,7 +41,6 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     @IBAction func addEntyPressed(_ sender: UIButton) {
         entries += [defaultEntry]
-        self.tableView.reloadData()
     }
 }
 
@@ -73,9 +75,9 @@ extension ScannerListTVC {
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count + 1
@@ -84,18 +86,21 @@ extension ScannerListTVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell
-        if indexPath.row > entries.count {
+        if indexPath.row >= entries.count {
             cell = tableView.dequeueReusableCell(withIdentifier: "totalsCell", for: indexPath)
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         }
 
-        let errorCell = tableView.dequeueReusableCell(withIdentifier: "errorCell", for: indexPath)
         if let scannerCell = cell as? ScannerCell {
-            return scannerCell.config(for: self, index: indexPath.row) as? UITableViewCell ?? errorCell
+            return scannerCell.config(for: self, index: indexPath.row) as? UITableViewCell ?? error(for: indexPath)
         } else {
-            return errorCell
+            return error(for: indexPath)
         }
+    }
+    
+    fileprivate func error(for path: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: "errorCell", for: path)
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -116,10 +121,7 @@ extension ScannerListTVC {
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }    
+        if editingStyle == .delete { entries.remove(at: indexPath.row) }
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {

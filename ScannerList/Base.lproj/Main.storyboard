@@ -27,7 +27,7 @@
                             </connections>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" id="vcO-vn-z9q" customClass="EntryCell" customModule="ScannerList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" id="vcO-vn-z9q" customClass="EntryCell" customModule="ScannerList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcO-vn-z9q" id="aUG-GP-5Qo">
@@ -84,7 +84,7 @@
                                     <outlet property="priceLabel" destination="YBd-hy-hYk" id="Qg0-fy-ifg"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TotalsCell" id="BYn-e5-Hsi" customClass="TotalsCell" customModule="ScannerList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="totalsCell" id="BYn-e5-Hsi" customClass="TotalsCell" customModule="ScannerList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BYn-e5-Hsi" id="q47-Oa-5VJ">
@@ -111,9 +111,9 @@
                                         <constraint firstItem="jso-5O-toA" firstAttribute="leading" secondItem="0Vr-UX-Pk7" secondAttribute="trailing" constant="8" symbolic="YES" id="h2V-uy-Kyg"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="cartRatio" destination="0Vr-UX-Pk7" id="0Qa-ST-cZm"/>
-                                    <outlet property="cartRationLabel" destination="0Vr-UX-Pk7" id="QFF-4k-Ppl"/>
                                     <outlet property="totalPrice" destination="jso-5O-toA" id="UB9-k3-qXv"/>
                                 </connections>
                             </tableViewCell>
@@ -133,6 +133,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -147,7 +148,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oga-zi-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="53"/>
+            <point key="canvasLocation" x="1201" y="30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TqZ-5I-WAZ">

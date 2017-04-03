@@ -53,7 +53,7 @@ extension EntryCell: ScannerCell {
     
     func config(for list: ScannerList, index: Int) -> ScannerCell {
         let entry = list.entries[index]
-        
+
         self.currentEntry = entry
         self.entryTitle.text = entry.title
         self.checkmarkButton.isSelected = entry.inCart

@@ -42,7 +42,7 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     // MARK: - Functions
     
-    @IBAction func addEntyPressed(_ sender: UIButton) {
+    @IBAction func addEntryPressed(_ sender: UIButton) {
         entries += [defaultEntry]
     }
     
@@ -53,14 +53,11 @@ class ScannerListTVC: UITableViewController, ScannerList {
 //        
 //    }
     
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+print("preparing segue @ ScannerListTVC with index: \(String(describing: selectedIndex))")
         if let index = selectedIndex,
             let controller = segue.destination as? PriceInputView {
+print("index and controller found")
             controller.entry = entries[index]
             controller.entryIndex = selectedIndex
         }
@@ -129,3 +126,10 @@ extension ScannerListTVC {
         return entries.count != indexPath.row ? .delete : .none
     }
 }
+
+
+
+
+
+
+

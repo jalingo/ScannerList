@@ -23,7 +23,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="addEntyPressed:" destination="GLr-sr-kqT" eventType="touchUpInside" id="EFp-Qx-f8l"/>
+                                <action selector="addEntryPressed:" destination="GLr-sr-kqT" eventType="touchUpInside" id="Mkh-HJ-zoC"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -99,17 +99,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX/XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vr-UX-Pk7">
-                                            <rect key="frame" x="225" y="11" width="50" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="50" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="0Vr-UX-Pk7" firstAttribute="baseline" secondItem="jso-5O-toA" secondAttribute="baseline" id="4Tx-Q5-gGt"/>
-                                        <constraint firstItem="0Vr-UX-Pk7" firstAttribute="centerY" secondItem="q47-Oa-5VJ" secondAttribute="centerY" id="Eyh-J7-Kw1"/>
-                                        <constraint firstItem="jso-5O-toA" firstAttribute="trailing" secondItem="q47-Oa-5VJ" secondAttribute="trailingMargin" id="MPN-Lv-icp"/>
-                                        <constraint firstItem="jso-5O-toA" firstAttribute="leading" secondItem="0Vr-UX-Pk7" secondAttribute="trailing" constant="8" symbolic="YES" id="h2V-uy-Kyg"/>
+                                        <constraint firstItem="0Vr-UX-Pk7" firstAttribute="centerY" secondItem="q47-Oa-5VJ" secondAttribute="centerY" id="JAO-cs-lIc"/>
+                                        <constraint firstItem="jso-5O-toA" firstAttribute="trailing" secondItem="q47-Oa-5VJ" secondAttribute="trailingMargin" id="Sye-k2-rtn"/>
+                                        <constraint firstItem="0Vr-UX-Pk7" firstAttribute="leading" secondItem="q47-Oa-5VJ" secondAttribute="leadingMargin" id="eNG-rB-E2W"/>
+                                        <constraint firstItem="0Vr-UX-Pk7" firstAttribute="baseline" secondItem="jso-5O-toA" secondAttribute="baseline" id="rtA-es-a2l"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,7 +126,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Error Occured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SYO-l8-yaM">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -174,7 +174,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GLr-sr-kqT" kind="show" id="jGD-CK-ZiZ"/>
+                                    <action selector="acceptPressed:" destination="NDT-N5-RYt" eventType="touchUpInside" id="uCj-N7-ApM"/>
                                 </connections>
                             </button>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G75-bf-pbw">
@@ -246,7 +246,4 @@
         <image name="Check" width="60" height="60"/>
         <image name="Grey Check" width="60" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="jGD-CK-ZiZ"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -38,11 +38,13 @@ class EntryCell: UITableViewCell {
     
     @IBAction func checkmarkPressed(_ sender: UIButton) {
         guard currentEntry != nil else { return }
-        
-        if let index = parent?.entries.index(where: { $0 == currentEntry! }) {
+print("checkmark pressed, checking entries: \(String(describing: parent?.entries.count))")
+        if let index = parent?.entries.index(where: { $0.title == currentEntry!.title }) {
+print("index found: \(index)")
             parent?.entries.remove(at: index)
             currentEntry!.inCart = !currentEntry!.inCart
             parent?.entries.insert(currentEntry!, at: index)
+            
             parent?.selectedIndex = index
         }
     }
@@ -54,12 +56,49 @@ extension EntryCell: ScannerCell {
     
     func config(for list: ScannerList, index: Int) -> ScannerCell {
         let entry = list.entries[index]
-
+        self.parent = list
+print("config @ entryCell: \(entry.title)")
         self.currentEntry = entry
         self.entryTitle.text = entry.title
         self.checkmarkButton.isSelected = entry.inCart
         self.priceLabel.text = "$\(entry.price)"
         
+        addToolBarToFieldKeyboard(textField: entryTitle)
+        
         return self
     }
 }
+
+// MARK: - Extensions: UITextFieldDelegate
+
+extension EntryCell: UITextFieldDelegate {
+    
+    // MARK: - Functions
+    
+    func addToolBarToFieldKeyboard(textField: UITextField) {
+        
+        textField.delegate = self
+        textField.inputAccessoryView = buildToolBar()
+    }
+    
+    func buildToolBar() -> UIToolbar {
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.donePressed))
+        toolBar.setItems([space, doneButton], animated: false)
+        
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        return toolBar
+    }
+    
+    func donePressed() {
+        self.contentView.endEditing(true)
+    }
+}
+

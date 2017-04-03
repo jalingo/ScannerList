@@ -48,10 +48,14 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     // MARK: - Functions: UIViewController
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard selectedIndex != nil else { return false }
+        
+        return entries[selectedIndex!].inCart
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-print("preparing segue @ ScannerListTVC")
         if let controller = segue.destination as? PriceInputView {
-print("controller found")
             controller.parentDelegate = self
         }
     }

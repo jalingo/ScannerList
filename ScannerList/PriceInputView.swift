@@ -48,16 +48,6 @@ class PriceInputView: UIViewController {
         }
     }
     
-    @IBAction func acceptPressed(_ sender: UIButton) {
-
-        entry?.inCart = true
-        
-        // Returns new price to Scanner List's 'entries'
-        parentDelegate?.entries[entryIndex!] = entry!
-
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     // MARK: - Functions: UIViewController
     
     override func viewDidLoad() {
@@ -66,7 +56,7 @@ class PriceInputView: UIViewController {
         addToolBarToFieldKeyboard(textField: priceField)
         
         if let price = entry?.price.doubleValue {
-            priceField.text = "\(round(price * 1000) / 1000)"
+            priceField.text = "\(round(price * 100) / 100)"
         }
     }
 }

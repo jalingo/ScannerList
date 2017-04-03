@@ -38,9 +38,8 @@ class EntryCell: UITableViewCell {
     
     @IBAction func checkmarkPressed(_ sender: UIButton) {
         guard currentEntry != nil else { return }
-print("checkmark pressed, checking entries: \(String(describing: parent?.entries.count))")
+
         if let index = parent?.entries.index(where: { $0.title == currentEntry!.title }) {
-print("index found: \(index)")
             parent?.entries.remove(at: index)
             currentEntry!.inCart = !currentEntry!.inCart
             parent?.entries.insert(currentEntry!, at: index)
@@ -57,11 +56,11 @@ extension EntryCell: ScannerCell {
     func config(for list: ScannerList, index: Int) -> ScannerCell {
         let entry = list.entries[index]
         self.parent = list
-print("config @ entryCell: \(entry.title)")
+
         self.currentEntry = entry
         self.entryTitle.text = entry.title
         self.checkmarkButton.isSelected = entry.inCart
-        self.priceLabel.text = "$\(entry.price)"
+        self.priceLabel.text = "$\(round(entry.price.doubleValue * 1000) / 1000)"
         
         addToolBarToFieldKeyboard(textField: entryTitle)
         

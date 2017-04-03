@@ -12,9 +12,29 @@ class PriceInputView: UIViewController {
 
     // MARK: - Properties
 
-    var entry: Entry?
+    var parentDelegate: ScannerList?
     
-    var entryIndex: Int?
+    var entry: Entry? {
+        get {
+            if let index = entryIndex {
+                return parentDelegate?.entries[index]
+            } else {
+                return nil
+            }
+        }
+        
+        set {
+            guard newValue != nil else { return }
+
+            if let index = entryIndex {
+                parentDelegate?.entries[index] = newValue!
+            }
+        }
+    }
+    
+    var entryIndex: Int? {
+        return parentDelegate?.selectedIndex
+    }
     
     @IBOutlet weak var priceField: UITextField!
     
@@ -29,7 +49,12 @@ class PriceInputView: UIViewController {
     }
     
     @IBAction func acceptPressed(_ sender: UIButton) {
+
         entry?.inCart = true
+        
+        // Returns new price to Scanner List's 'entries'
+        parentDelegate?.entries[entryIndex!] = entry!
+
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -41,18 +66,7 @@ class PriceInputView: UIViewController {
         addToolBarToFieldKeyboard(textField: priceField)
         
         if let price = entry?.price.doubleValue {
-            priceField.text = "\(round(price * 100) / 100)"
-        }
-    }
-
-    // Returns new price to Scanner List's 'entries'
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-print("checking entry: \(String(describing: entry)) & index: \(String(describing: entryIndex))")
-        guard entry != nil, entryIndex != nil else { return }
-print("preparing segue @ PriceInput")
-        if var controller = segue.destination as? ScannerList {
-print("seguing to ScannerList")
-            controller.entries[entryIndex!] = entry!
+            priceField.text = "\(round(price * 1000) / 1000)"
         }
     }
 }

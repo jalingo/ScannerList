@@ -48,18 +48,11 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     // MARK: - Functions: UIViewController
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-print("preparing segue @ ScannerListTVC with index: \(String(describing: selectedIndex))")
-        if let index = selectedIndex,
-            let controller = segue.destination as? PriceInputView {
-print("index and controller found")
-            controller.entry = entries[index]
-            controller.entryIndex = selectedIndex
+print("preparing segue @ ScannerListTVC")
+        if let controller = segue.destination as? PriceInputView {
+print("controller found")
+            controller.parentDelegate = self
         }
     }
 }

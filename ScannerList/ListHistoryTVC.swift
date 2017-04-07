@@ -18,16 +18,29 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     
     fileprivate var selectedIndex: Int?
 
-    var lists = ["My First List"] {
-        didSet { self.tableView.reloadData() }
+    var lists = [String]() {
+        didSet {
+            lists.count != 0 ?
+                self.tableView.reloadData() : resetLists()
+        }
     }
     
     fileprivate var editingEnabled = false {
-        didSet { self.tableView.reloadData() }
+        didSet {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Functions
 
+    fileprivate func resetLists() {
+        guard lists.count == 0 else { return }
+
+        lists.append("My First List")
+        self.navigationController?.setEditing(false, animated: true)
+        editingEnabled = false
+    }
+    
     @objc fileprivate func editButtonTapped() {
         editingEnabled = !editingEnabled
     }
@@ -36,9 +49,10 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.editButtonItem.action = #selector(self.editButtonTapped)
+        resetLists()
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String,
@@ -59,13 +73,11 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     
     // MARK: - Functions: UITableViewController
     
-    override func tableView(_ tableView: UITableView,
-                            numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lists.count
     }
     
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "listCell",
                                                       for: indexPath)
@@ -82,7 +94,8 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         selectedIndex = indexPath.row
         
         editingEnabled ?
-            renameListWithAlert() : performSegue(withIdentifier: "historyToListDetail", sender: self)
+            renameListWithAlert() : performSegue(withIdentifier: "historyToListDetail",
+                                                 sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -123,8 +136,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         present(alertController, animated: true) { }
     }
     
-    override func tableView(_ tableView: UITableView,
-                            canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return editingEnabled
     }
 

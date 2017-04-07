@@ -28,6 +28,7 @@
 		DC31733F1E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173411E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
+		DCE3C4891E97476B00E37898 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE3C4881E97476B00E37898 /* CloudKit.framework */; };
 		DCFB796B1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
 		DCFB796C1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
 		DCFB796D1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
@@ -68,6 +69,8 @@
 		DC1AC9C21E90E52B00CEF1A0 /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		DC31733A1E91D3B100AE4921 /* PriceInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceInputView.swift; sourceTree = "<group>"; };
 		DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanner.swift; sourceTree = "<group>"; };
+		DCE3C4861E97475600E37898 /* ScannerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScannerList.entitlements; sourceTree = "<group>"; };
+		DCE3C4881E97476B00E37898 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHistoryTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE3C4891E97476B00E37898 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +107,7 @@
 				DC1AC99F1E90DED900CEF1A0 /* ScannerListTests */,
 				DC1AC9AA1E90DED900CEF1A0 /* ScannerListUITests */,
 				DC1AC9891E90DED800CEF1A0 /* Products */,
+				DCE3C4871E97476B00E37898 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +124,7 @@
 		DC1AC98A1E90DED800CEF1A0 /* ScannerList */ = {
 			isa = PBXGroup;
 			children = (
+				DCE3C4861E97475600E37898 /* ScannerList.entitlements */,
 				DC1AC9B91E90E48B00CEF1A0 /* Assets */,
 				DC1AC98F1E90DED800CEF1A0 /* Main.storyboard */,
 				DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */,
@@ -174,6 +180,14 @@
 				DC31733A1E91D3B100AE4921 /* PriceInputView.swift */,
 			);
 			name = PriceInput;
+			sourceTree = "<group>";
+		};
+		DCE3C4871E97476B00E37898 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCE3C4881E97476B00E37898 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +260,14 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 2ASS3F562Z;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					DC1AC99B1E90DED900CEF1A0 = {
 						CreatedOnToolsVersion = 8.3;
@@ -483,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScannerList/ScannerList.entitlements;
 				DEVELOPMENT_TEAM = 2ASS3F562Z;
 				INFOPLIST_FILE = ScannerList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -496,6 +519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ScannerList/ScannerList.entitlements;
 				DEVELOPMENT_TEAM = 2ASS3F562Z;
 				INFOPLIST_FILE = ScannerList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

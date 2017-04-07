@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Class
+
 class PriceInputView: UIViewController {
 
     // MARK: - Properties
@@ -48,18 +50,6 @@ class PriceInputView: UIViewController {
         }
     }
     
-    // MARK: - Functions: UIViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        addToolBarToFieldKeyboard(textField: priceField)
-        
-        if let price = entry?.price.doubleValue {
-            priceField.text = "\(String(format: "%.2f", price * 100))"
-        }
-    }
-    
     deinit {
         print("PriceInputView deallocated :)")
     }
@@ -67,7 +57,22 @@ class PriceInputView: UIViewController {
 
 // MARK: - Extensions
 
-// MARK: - Extensions: UITextFieldDelegate
+// MARK: - Extension: UIViewController
+
+extension PriceInputView {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addToolBarToFieldKeyboard(textField: priceField)
+        
+        if let price = entry?.price.doubleValue {
+            priceField.text = "\(String(format: "%.2f", price * 100))"
+        }
+    }
+}
+
+// MARK: - Extension: UITextFieldDelegate
 
 extension PriceInputView: UITextFieldDelegate {
     

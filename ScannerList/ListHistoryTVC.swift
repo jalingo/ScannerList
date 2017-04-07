@@ -8,9 +8,13 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol ListHistory {
     var lists: [String] { get set }
 }
+
+// MARK: - Class
 
 class ListHistoryTVC: UITableViewController, ListHistory {
 
@@ -26,9 +30,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     }
     
     fileprivate var editingEnabled = false {
-        didSet {
-            self.tableView.reloadData()
-        }
+        didSet { self.tableView.reloadData() }
     }
     
     // MARK: - Functions
@@ -45,16 +47,25 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         editingEnabled = !editingEnabled
     }
     
-    // MARK: - Functions: UIViewController
+    deinit {
+        print("ListHistoryTVC deallocated :)")
+    }
+}
+
+// MARK: - Extensions
+
+// MARK: - Extension: UIViewController
+
+extension ListHistoryTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.editButtonItem.action = #selector(self.editButtonTapped)
         resetLists()
     }
-
+    
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
         return !editingEnabled
@@ -66,24 +77,25 @@ class ListHistoryTVC: UITableViewController, ListHistory {
             controller.listTitle = lists[index]
         }
     }
+}
+
+// MARK: - Extension: UITableViewController (Delegate / Data)
+
+extension ListHistoryTVC {
     
-    deinit {
-        print("ListHistoryTVC deallocated :)")
-    }
-    
-    // MARK: - Functions: UITableViewController
+    // MARK: - Functions
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "listCell",
                                                       for: indexPath)
         
         cell.detailTextLabel?.text = lists[indexPath.row]
-
+        
         editingEnabled ?
             (cell.textLabel?.text = "Edit:") : (cell.textLabel?.text = "")
         
@@ -104,8 +116,8 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         guard selectedIndex != nil else { return }
         
         let alertController = UIAlertController(title: "Rename: \(lists[selectedIndex!])",
-                                                message: nil,
-                                                preferredStyle: .alert)
+            message: nil,
+            preferredStyle: .alert)
         
         let okay = UIAlertAction(title: "Change", style: .default) { [weak self] action in
             if let me = self {
@@ -125,7 +137,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
                 NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange,
                                                        object: textField,
                                                        queue: OperationQueue.main) { notification in
-                                                        okay.isEnabled = textField.text != ""   // <-- Conditional expression true if valid text input exists
+                    okay.isEnabled = textField.text != ""   // <-- Conditional expression true if valid text input exists
                 }
             }
         }
@@ -133,13 +145,13 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         alertController.addAction(okay)
         alertController.addAction(cancel)
         
-        present(alertController, animated: true) { }
+        present(alertController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return editingEnabled
     }
-
+    
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return !editingEnabled
     }
@@ -148,7 +160,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         if editingStyle == .delete {
             lists.remove(at: indexPath.row)
         } else if editingStyle == .insert {
-print("insert attempted")
+            print("insert attempted")
         }
     }
 }

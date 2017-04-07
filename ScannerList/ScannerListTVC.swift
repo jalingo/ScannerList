@@ -26,7 +26,7 @@ protocol ScannerCell {
     func config(for parent: ScannerList, index: Int) -> ScannerCell
 }
 
-// MARK: - Class: ScannerListTVC
+// MARK: - Class
 
 class ScannerListTVC: UITableViewController, ScannerList {
 
@@ -44,16 +44,23 @@ class ScannerListTVC: UITableViewController, ScannerList {
     }
     
     @IBOutlet weak var navBarTitle: UINavigationItem!
-
-    @IBOutlet var addEntryButton: UIButton?
     
     // MARK: - Functions
     
-    @IBAction func addEntryPressed(_ sender: UIButton) {
+    @IBAction func addEntryTapped(_ sender: UIBarButtonItem) {
         entries += [defaultEntry]
     }
     
-    // MARK: - Functions: UIViewController
+    deinit {
+        print("ScannerList deallocated :)")
+    }
+}
+
+// MARK: - Extensions
+
+// MARK: - Extension: UIViewController
+
+extension ScannerListTVC {
     
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
@@ -73,13 +80,7 @@ class ScannerListTVC: UITableViewController, ScannerList {
             controller.parentDelegate = self
         }
     }
-    
-    deinit {
-        print("ScannerList deallocated :)")
-    }
 }
-
-// MARK: - Extensions
 
 // MARK: - Extension: UITableViewController
 

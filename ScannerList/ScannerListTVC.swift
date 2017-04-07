@@ -17,6 +17,7 @@ typealias Entry = (title: String, inCart: Bool, price: NSNumber)
 // MARK: - Protocols
 
 protocol ScannerList {
+    var listTitle: String?  { get set }
     var entries: [Entry]    { get set }
     var selectedIndex: Int? { get set }
 }
@@ -31,9 +32,11 @@ class ScannerListTVC: UITableViewController, ScannerList {
 
     // MARK: - Properties
     
+    var listTitle: String?
+    
     var selectedIndex: Int?
 
-    //data model
+    //setup data model
     var entries = [defaultEntry] {
         didSet { self.tableView.reloadData() }
     }
@@ -48,15 +51,56 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     // MARK: - Functions: UIViewController
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+//        let rightBarButton = UIBarButtonItem(barButtonSystemItem: .bookmarks,
+//                                             target: self,
+//                                             action: #selector(ScannerListTVC.rightBarButtonPressed))
+
+//        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+//    func rightBarButtonPressed() {
+//        let listHistory = ListHistoryTVC()
+//print("preparing")
+//        if let index = listHistory.lists.index(where: { $0 == listTitle }) {
+//print("removing")
+//            listHistory.lists.remove(at: index)
+//print("adding")
+//            listHistory.lists.insert(listTitle!, at: index)
+//        } else {
+//print("else")
+//            listHistory.lists.append("untitled list")
+//        }
+//        
+//        self.navigationController?.pushViewController(listHistory, animated: true)
+//    }
+    
+    // Should not be queried when 'rightBarButtonPressed' triggers manual push...
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool {
+        guard identifier != "listToHistory" else { return true }
         guard selectedIndex != nil else { return false }
         
+        // This seems to return the opposite, but value is changed before method called.
         return entries[selectedIndex!].inCart
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? PriceInputView {
             controller.parentDelegate = self
+        }
+        
+        if var controller = segue.destination as? ListHistory {
+            if let str = listTitle,
+                let index = controller.lists.index(where: { $0 == str }) {
+                    
+                controller.lists.remove(at: index)
+                controller.lists.insert(str, at: index)
+            } else {
+                controller.lists.append("untitled")
+            }
         }
     }
 }

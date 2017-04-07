@@ -28,6 +28,9 @@
 		DC31733F1E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173411E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
+		DCFB796B1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
+		DCFB796C1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
+		DCFB796D1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,7 @@
 		DC1AC9C21E90E52B00CEF1A0 /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		DC31733A1E91D3B100AE4921 /* PriceInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceInputView.swift; sourceTree = "<group>"; };
 		DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanner.swift; sourceTree = "<group>"; };
+		DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHistoryTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +121,8 @@
 			children = (
 				DC1AC9B91E90E48B00CEF1A0 /* Assets */,
 				DC1AC98F1E90DED800CEF1A0 /* Main.storyboard */,
-				DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */,
-				DC31733A1E91D3B100AE4921 /* PriceInputView.swift */,
+				DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */,
+				DC97A9051E9704FE000623F6 /* PriceInput */,
 				DC3173391E91C7FF00AE4921 /* ScannerList */,
 			);
 			path = ScannerList;
@@ -161,6 +165,15 @@
 				DC1AC9C21E90E52B00CEF1A0 /* EntryCell.swift */,
 			);
 			name = ScannerList;
+			sourceTree = "<group>";
+		};
+		DC97A9051E9704FE000623F6 /* PriceInput */ = {
+			isa = PBXGroup;
+			children = (
+				DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */,
+				DC31733A1E91D3B100AE4921 /* PriceInputView.swift */,
+			);
+			name = PriceInput;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +318,7 @@
 				DC1AC9BF1E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
 				DC31733F1E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
 				DC1AC98C1E90DED800CEF1A0 /* AppDelegate.swift in Sources */,
+				DCFB796B1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
 				DC31733B1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +332,7 @@
 				DC1AC9C01E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
 				DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
 				DC1AC9A11E90DED900CEF1A0 /* ScannerListTests.swift in Sources */,
+				DCFB796C1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
 				DC31733C1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +346,7 @@
 				DC1AC9C11E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
 				DC3173411E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
 				DC1AC9AC1E90DED900CEF1A0 /* ScannerListUITests.swift in Sources */,
+				DCFB796D1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
 				DC31733D1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

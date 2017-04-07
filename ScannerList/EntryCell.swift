@@ -39,7 +39,7 @@ class EntryCell: UITableViewCell {
     @IBAction func checkmarkPressed(_ sender: UIButton) {
         guard currentEntry != nil else { return }
 
-        if let index = parent?.entries.index(where: { $0.title == currentEntry!.title }) {
+        if let index = parent?.entries.index(where: { $0 == currentEntry! }) {
             parent?.entries.remove(at: index)
             currentEntry!.inCart = !currentEntry!.inCart
             parent?.entries.insert(currentEntry!, at: index)

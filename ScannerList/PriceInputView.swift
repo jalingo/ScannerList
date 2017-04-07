@@ -59,6 +59,10 @@ class PriceInputView: UIViewController {
             priceField.text = "\(round(price * 100) / 100)"
         }
     }
+    
+    deinit {
+        print("PriceInputView deallocated :)")
+    }
 }
 
 // MARK: - Extensions

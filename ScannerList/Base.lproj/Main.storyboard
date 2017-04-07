@@ -23,11 +23,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OFx-P7-M6D" id="WXy-OG-Y8v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ERROR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XPx-1X-vb1">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -36,11 +36,11 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" textLabel="6JT-We-sDy" detailTextLabel="PdU-Aa-w9q" style="IBUITableViewCellStyleValue2" id="tXN-EM-vOL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="6JT-We-sDy" detailTextLabel="PdU-Aa-w9q" style="IBUITableViewCellStyleValue2" id="tXN-EM-vOL">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tXN-EM-vOL" id="6jH-u9-Hjw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6JT-We-sDy">
@@ -59,9 +59,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="GLr-sr-kqT" kind="show" id="if9-EI-iTM"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -69,7 +66,10 @@
                             <outlet property="delegate" destination="8Jq-fH-iXK" id="ebx-9g-wQa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ebo-F6-5Ni"/>
+                    <navigationItem key="navigationItem" id="QKC-S5-6KC"/>
+                    <connections>
+                        <segue destination="GLr-sr-kqT" kind="show" identifier="historyToListDetail" id="RPP-si-4NW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsz-hP-mEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,11 +187,11 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TVf-SA-eNv" id="8JZ-bv-8Md">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Error Occured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SYO-l8-yaM">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -207,15 +207,10 @@
                             <outlet property="delegate" destination="GLr-sr-kqT" id="CnB-if-lp5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="UR7-oX-WC1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="OvJ-aN-Mii">
-                            <connections>
-                                <segue destination="8Jq-fH-iXK" kind="show" identifier="listToHistory" id="6y3-VC-vSn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="UR7-oX-WC1"/>
                     <connections>
                         <outlet property="addEntryButton" destination="zqa-dW-YHf" id="pBQ-er-j2t"/>
+                        <outlet property="navBarTitle" destination="UR7-oX-WC1" id="lB1-W2-lAf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oga-zi-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,13 +230,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G75-bf-pbw">
-                                <rect key="frame" x="16" y="106" width="343" height="541"/>
+                                <rect key="frame" x="16" y="62" width="343" height="585"/>
                                 <connections>
                                     <segue destination="xAm-wQ-Xuo" kind="embed" id="xw6-qY-2kc"/>
                                 </connections>
                             </containerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zS-KN-TO2">
-                                <rect key="frame" x="16" y="72" width="343" height="26"/>
+                                <rect key="frame" x="16" y="28" width="343" height="26"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -288,19 +283,16 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="GLr-sr-kqT" kind="relationship" relationship="rootViewController" id="dcR-Vb-d5t"/>
+                        <segue destination="8Jq-fH-iXK" kind="relationship" relationship="rootViewController" id="ylN-Gs-wpZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdJ-Gk-vOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="29"/>
+            <point key="canvasLocation" x="289" y="-700"/>
         </scene>
     </scenes>
     <resources>
         <image name="Check" width="60" height="60"/>
         <image name="Grey Check" width="60" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="if9-EI-iTM"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -35,7 +35,7 @@ extension TotalsCell: ScannerCell {
             total += entry.price.floatValue
         }
     
-        return "$\(round(total * 100) / 100)" //<-- rounds to two decimal places
+        return "$\(String(format: "%.2f", total))"
     }
     
     fileprivate func ratio(from list: ScannerList) -> String {

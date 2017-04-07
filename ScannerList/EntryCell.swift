@@ -60,7 +60,7 @@ extension EntryCell: ScannerCell {
         self.currentEntry = entry
         self.entryTitle.text = entry.title
         self.checkmarkButton.isSelected = entry.inCart
-        self.priceLabel.text = "$\(round(entry.price.doubleValue * 100) / 100)"
+        self.priceLabel.text = "$\(String(format: "%.2f", entry.price.stringValue))"
         
         addToolBarToFieldKeyboard(textField: entryTitle)
         

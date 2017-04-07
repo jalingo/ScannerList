@@ -56,7 +56,7 @@ class PriceInputView: UIViewController {
         addToolBarToFieldKeyboard(textField: priceField)
         
         if let price = entry?.price.doubleValue {
-            priceField.text = "\(round(price * 100) / 100)"
+            priceField.text = "\(String(format: "%.2f", price * 100))"
         }
     }
     

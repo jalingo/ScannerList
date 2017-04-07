@@ -32,7 +32,9 @@ class ScannerListTVC: UITableViewController, ScannerList {
 
     // MARK: - Properties
     
-    var listTitle: String?
+    var listTitle: String? {
+        didSet { navBarTitle.title = listTitle! }
+    }
     
     var selectedIndex: Int?
 
@@ -40,6 +42,8 @@ class ScannerListTVC: UITableViewController, ScannerList {
     var entries = [defaultEntry] {
         didSet { self.tableView.reloadData() }
     }
+    
+    @IBOutlet weak var navBarTitle: UINavigationItem!
 
     @IBOutlet var addEntryButton: UIButton?
     
@@ -51,36 +55,13 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     // MARK: - Functions: UIViewController
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-//        let rightBarButton = UIBarButtonItem(barButtonSystemItem: .bookmarks,
-//                                             target: self,
-//                                             action: #selector(ScannerListTVC.rightBarButtonPressed))
-
-//        self.navigationItem.rightBarButtonItem = rightBarButton
-    }
-    
-//    func rightBarButtonPressed() {
-//        let listHistory = ListHistoryTVC()
-//print("preparing")
-//        if let index = listHistory.lists.index(where: { $0 == listTitle }) {
-//print("removing")
-//            listHistory.lists.remove(at: index)
-//print("adding")
-//            listHistory.lists.insert(listTitle!, at: index)
-//        } else {
-//print("else")
-//            listHistory.lists.append("untitled list")
-//        }
-//        
-//        self.navigationController?.pushViewController(listHistory, animated: true)
-//    }
-    
-    // Should not be queried when 'rightBarButtonPressed' triggers manual push...
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
+ 
+        // Should not be queried when 'rightBarButtonPressed' triggers manual push...
         guard identifier != "listToHistory" else { return true }
+        
+        //
         guard selectedIndex != nil else { return false }
         
         // This seems to return the opposite, but value is changed before method called.
@@ -91,17 +72,10 @@ class ScannerListTVC: UITableViewController, ScannerList {
         if let controller = segue.destination as? PriceInputView {
             controller.parentDelegate = self
         }
-        
-        if var controller = segue.destination as? ListHistory {
-            if let str = listTitle,
-                let index = controller.lists.index(where: { $0 == str }) {
-                    
-                controller.lists.remove(at: index)
-                controller.lists.insert(str, at: index)
-            } else {
-                controller.lists.append("untitled")
-            }
-        }
+    }
+    
+    deinit {
+        print("ScannerList deallocated :)")
     }
 }
 
@@ -121,9 +95,11 @@ extension ScannerListTVC {
         
         var cell: UITableViewCell
         if indexPath.row >= entries.count {
-            cell = tableView.dequeueReusableCell(withIdentifier: "totalsCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "totalsCell",
+                                                 for: indexPath)
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "entryCell",
+                                                 for: indexPath)
         }
 
         if let scannerCell = cell as? ScannerCell {

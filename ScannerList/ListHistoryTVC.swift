@@ -19,7 +19,6 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     fileprivate var selectedIndex: Int?
 
     var lists = ["My First List"] {
-//    var lists = [String]() {
         didSet { self.tableView.reloadData() }
     }
     
@@ -55,7 +54,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     }
     
     deinit {
-print("ListHistoryTVC deallocated :)")
+        print("ListHistoryTVC deallocated :)")
     }
     
     // MARK: - Functions: UITableViewController
@@ -80,8 +79,48 @@ print("ListHistoryTVC deallocated :)")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row   // <- Not happening before 'prepare' func!
-        performSegue(withIdentifier: "historyToListDetail", sender: self)
+        selectedIndex = indexPath.row
+        
+        editingEnabled ?
+            renameListWithAlert() : performSegue(withIdentifier: "historyToListDetail", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    fileprivate func renameListWithAlert() {
+        guard selectedIndex != nil else { return }
+        
+        let alertController = UIAlertController(title: "Rename: \(lists[selectedIndex!])",
+                                                message: nil,
+                                                preferredStyle: .alert)
+        
+        let okay = UIAlertAction(title: "Change", style: .default) { [weak self] action in
+            if let me = self {
+                let textField = alertController.textFields![0] as UITextField
+                me.lists[me.selectedIndex!] = textField.text!
+            }
+        }
+        
+        okay.isEnabled = false  // <-- Enabled after text has been entered.
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        
+        alertController.addTextField { [weak self] textField in
+            if let me = self {
+                textField.placeholder = me.lists[me.selectedIndex!]
+                
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange,
+                                                       object: textField,
+                                                       queue: OperationQueue.main) { notification in
+                                                        okay.isEnabled = textField.text != ""   // <-- Conditional expression true if valid text input exists
+                }
+            }
+        }
+        
+        alertController.addAction(okay)
+        alertController.addAction(cancel)
+        
+        present(alertController, animated: true) { }
     }
     
     override func tableView(_ tableView: UITableView,
@@ -89,11 +128,15 @@ print("ListHistoryTVC deallocated :)")
         return editingEnabled
     }
 
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return !editingEnabled
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             lists.remove(at: indexPath.row)
         } else if editingStyle == .insert {
-print("insert attempt")
+print("insert attempted")
         }
     }
 }

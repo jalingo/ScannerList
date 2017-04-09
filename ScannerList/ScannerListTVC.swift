@@ -117,8 +117,7 @@ extension ScannerListTVC {
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-print("canMoveRowAt (scannerListTVC)")
-        return entries.count != indexPath.row ? true : false
+        return true
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

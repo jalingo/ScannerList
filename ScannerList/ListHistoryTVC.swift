@@ -52,7 +52,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         editingEnabled = false
     }
     
-    @objc fileprivate func editButtonTapped() {
+    @objc fileprivate func alternateEditingEnabled() {
         editingEnabled = !editingEnabled
     }
     
@@ -81,13 +81,23 @@ extension ListHistoryTVC {
     }
     
     fileprivate func setRightBarButtonToEdit() {
+        replaceListTitles()
+        
+        // This line keeps the internal editing mode from switching button title to 'Done'
+        self.navigationController?.setEditing(false, animated: true)
+
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.editButtonItem.action = #selector(self.editButtonTapped)
+        self.editButtonItem.action = #selector(self.alternateEditingEnabled)
+        
+        self.navigationItem.leftBarButtonItem = nil
     }
     
     fileprivate func setRightBarButtonToAdd() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonTapped))
         self.navigationItem.rightBarButtonItem = addButton
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.alternateEditingEnabled))
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
     
     fileprivate func recoverListTitles() {
@@ -106,8 +116,7 @@ extension ListHistoryTVC {
         UserDefaults().set(self.lists, forKey: titlesKey)
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String,
-                                     sender: Any?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return !editingEnabled
     }
     
@@ -198,6 +207,7 @@ extension ListHistoryTVC {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            editingEnabled = false
             lists.remove(at: indexPath.row)
         } else if editingStyle == .insert {
             print("insert attempted")

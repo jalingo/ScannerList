@@ -34,7 +34,12 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     }
     
     fileprivate var editingEnabled = false {
-        didSet { self.tableView.reloadData() }
+        didSet {
+            editingEnabled ?
+                setRightBarButtonToAdd() : setRightBarButtonToEdit()
+            
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Functions
@@ -51,6 +56,11 @@ class ListHistoryTVC: UITableViewController, ListHistory {
         editingEnabled = !editingEnabled
     }
     
+    @objc fileprivate func addButtonTapped() {
+        lists.append("My Next List...")
+        editingEnabled = false
+    }
+    
     deinit {
         print("ListHistoryTVC deallocated :)")
     }
@@ -65,10 +75,19 @@ extension ListHistoryTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.editButtonItem.action = #selector(self.editButtonTapped)
+        setRightBarButtonToEdit()
 
         recoverListTitles()
+    }
+    
+    fileprivate func setRightBarButtonToEdit() {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.editButtonItem.action = #selector(self.editButtonTapped)
+    }
+    
+    fileprivate func setRightBarButtonToAdd() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonTapped))
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
     fileprivate func recoverListTitles() {

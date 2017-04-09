@@ -112,29 +112,29 @@ extension ScannerListTVC {
         return tableView.dequeueReusableCell(withIdentifier: "errorCell", for: path)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
 print("canMoveRowAt (scannerListTVC)")
         return entries.count != indexPath.row ? true : false
     }
     
-    override func tableView(_ tableView: UITableView,
-                            moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+print("moveRowAt (scannerListTVC)")
         let entry = entries[fromIndexPath.row]
         entries.remove(at: fromIndexPath.row)
         entries.insert(entry, at: to.row)
     }
     
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView,
-                            canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return entries.count != indexPath.row ? true : false
     }
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCellEditingStyle,
-                            forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete { entries.remove(at: indexPath.row) }
     }
     

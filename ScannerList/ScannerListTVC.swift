@@ -86,13 +86,11 @@ extension ScannerListTVC {
 
 extension ScannerListTVC {
     
-    override func tableView(_ tableView: UITableView,
-                            numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count + 1
     }
 
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell
         if indexPath.row >= entries.count {
@@ -114,8 +112,8 @@ extension ScannerListTVC {
         return tableView.dequeueReusableCell(withIdentifier: "errorCell", for: path)
     }
     
-    override func tableView(_ tableView: UITableView,
-                            canMoveRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+print("canMoveRowAt (scannerListTVC)")
         return entries.count != indexPath.row ? true : false
     }
     

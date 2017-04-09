@@ -128,8 +128,8 @@
 				DC1AC9B91E90E48B00CEF1A0 /* Assets */,
 				DC1AC98F1E90DED800CEF1A0 /* Main.storyboard */,
 				DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */,
-				DC97A9051E9704FE000623F6 /* PriceInput */,
 				DC3173391E91C7FF00AE4921 /* ScannerList */,
+				DC97A9051E9704FE000623F6 /* PriceInput */,
 			);
 			path = ScannerList;
 			sourceTree = "<group>";

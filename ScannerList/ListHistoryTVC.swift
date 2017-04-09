@@ -8,6 +8,10 @@
 
 import UIKit
 
+// MARK: - GlobalConstants
+
+let titlesKey = "ListTitlesKey"
+
 // MARK: - Protocols
 
 protocol ListHistory {
@@ -63,7 +67,24 @@ extension ListHistoryTVC {
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.editButtonItem.action = #selector(self.editButtonTapped)
-        resetLists()
+
+        recoverListTitles()
+    }
+    
+    fileprivate func recoverListTitles() {
+        if let titles = UserDefaults().array(forKey: titlesKey) as? [String] {
+            self.lists = titles
+        }
+        
+        resetLists()    // <-- Deals with empty arrays of titles.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        replaceListTitles()
+    }
+    
+    fileprivate func replaceListTitles() {
+        UserDefaults().set(self.lists, forKey: titlesKey)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,

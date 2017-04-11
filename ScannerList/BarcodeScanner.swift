@@ -13,11 +13,11 @@ class BarcodeScanner: UIViewController {
 
     // MARK: - Properties
 
-    var captureSession:AVCaptureSession?
+    var captureSession: AVCaptureSession?
     
-    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
-    var qrCodeFrameView:UIView?
+    var qrCodeFrameView: UIView?
    
     let supportedCodeTypes = [AVMetadataObjectTypeUPCECode,
                               AVMetadataObjectTypeCode39Code,
@@ -59,25 +59,42 @@ extension BarcodeScanner: AVCaptureMetadataOutputObjectsDelegate {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         guard metadataObjects != nil && metadataObjects.count != 0 else {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR / barcode is detected"
+            messageLabel.text = "No QR / Barcode is detected"
             return
         }
         
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
+        if supportedCodeTypes.contains(metadataObj.type) {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
-                
-                // MARK: - TODO: Need to derive prices here...
             }
         }
+        
+//        switch metadataObj.type {
+//        case AVMetadataObjectTypeQRCode: handleQRCode(from: metadataObj)
+//        default: return
+//        }
     }
+
+    /**
+     If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+     */
+//    fileprivate func handleQRCode(from metadataObj: AVMetadataMachineReadableCodeObject) {
+//        let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+//        qrCodeFrameView?.frame = barCodeObject!.bounds
+//        
+//        if metadataObj.stringValue != nil {
+//            messageLabel.text = metadataObj.stringValue
+//            
+//            // MARK: - TODO: Need to derive prices here...
+//        }
+//    }
     
     fileprivate func prepareAndLaunchScanner() {
         
@@ -133,22 +150,24 @@ extension BarcodeScanner: AVCaptureMetadataOutputObjectsDelegate {
         // Start video capture.
         captureSession?.startRunning()
         
+        attemptQRDecode()
+        attemptBarcodeDecode()
+    }
+    
+    fileprivate func attemptQRDecode() {
+        
         // Initialize QR Code Frame to highlight the QR code
         qrCodeFrameView = UIView()
         
         if let qrCodeFrameView = qrCodeFrameView {
             qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView.layer.borderWidth = 2
+            qrCodeFrameView.layer.borderWidth = 5
             view.addSubview(qrCodeFrameView)
             view.bringSubview(toFront: qrCodeFrameView)
         }
+    }
+    
+    fileprivate func attemptBarcodeDecode() {
         
-//        do {
-//            
-//        } catch {
-//            // If any error occurs, simply print it out and don't continue any more.
-//            print(error)
-//            return
-//        }
     }
 }

@@ -29,6 +29,9 @@
 		DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173411E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DCE3C4891E97476B00E37898 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE3C4881E97476B00E37898 /* CloudKit.framework */; };
+		DCF0362D1E9C70A400BA06A0 /* PreScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */; };
+		DCF0362E1E9C70A400BA06A0 /* PreScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */; };
+		DCF0362F1E9C70A400BA06A0 /* PreScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */; };
 		DCFB796B1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
 		DCFB796C1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
 		DCFB796D1E923A95007C141E /* ListHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */; };
@@ -71,6 +74,7 @@
 		DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanner.swift; sourceTree = "<group>"; };
 		DCE3C4861E97475600E37898 /* ScannerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScannerList.entitlements; sourceTree = "<group>"; };
 		DCE3C4881E97476B00E37898 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreScanner.swift; sourceTree = "<group>"; };
 		DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHistoryTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,8 +180,9 @@
 		DC97A9051E9704FE000623F6 /* PriceInput */ = {
 			isa = PBXGroup;
 			children = (
-				DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */,
 				DC31733A1E91D3B100AE4921 /* PriceInputView.swift */,
+				DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */,
+				DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */,
 			);
 			name = PriceInput;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				DC1AC9BB1E90E4D300CEF1A0 /* ScannerListTVC.swift in Sources */,
 				DC1AC9BF1E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
 				DC31733F1E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
+				DCF0362D1E9C70A400BA06A0 /* PreScanner.swift in Sources */,
 				DC1AC98C1E90DED800CEF1A0 /* AppDelegate.swift in Sources */,
 				DCFB796B1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
 				DC31733B1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
@@ -353,6 +359,7 @@
 				DC1AC9BC1E90E4D300CEF1A0 /* ScannerListTVC.swift in Sources */,
 				DC1AC9C01E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
 				DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
+				DCF0362E1E9C70A400BA06A0 /* PreScanner.swift in Sources */,
 				DC1AC9A11E90DED900CEF1A0 /* ScannerListTests.swift in Sources */,
 				DCFB796C1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
 				DC31733C1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
@@ -367,6 +374,7 @@
 				DC1AC9BD1E90E4D300CEF1A0 /* ScannerListTVC.swift in Sources */,
 				DC1AC9C11E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
 				DC3173411E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
+				DCF0362F1E9C70A400BA06A0 /* PreScanner.swift in Sources */,
 				DC1AC9AC1E90DED900CEF1A0 /* ScannerListUITests.swift in Sources */,
 				DCFB796D1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
 				DC31733D1E91D3B100AE4921 /* PriceInputView.swift in Sources */,

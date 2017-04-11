@@ -23,11 +23,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OFx-P7-M6D" id="WXy-OG-Y8v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ERROR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XPx-1X-vb1">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -179,11 +179,11 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TVf-SA-eNv" id="8JZ-bv-8Md">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Error Occured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SYO-l8-yaM">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -226,10 +226,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G75-bf-pbw">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G75-bf-pbw">
                                 <rect key="frame" x="16" y="106" width="343" height="541"/>
                                 <connections>
-                                    <segue destination="xAm-wQ-Xuo" kind="embed" id="xw6-qY-2kc"/>
+                                    <segue destination="awR-qO-nat" kind="embed" id="RhH-w2-jvO"/>
                                 </connections>
                             </containerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zS-KN-TO2">
@@ -261,14 +261,6 @@
             </objects>
             <point key="canvasLocation" x="1956" y="29.23538230884558"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="EV3-1i-gpj">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="xAm-wQ-Xuo" customClass="BarcodeScanner" customModule="ScannerList" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U1Q-Yr-EQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2756" y="29"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="TqZ-5I-WAZ">
             <objects>
@@ -287,9 +279,125 @@
             </objects>
             <point key="canvasLocation" x="-542" y="27"/>
         </scene>
+        <!--Pre Scanner-->
+        <scene sceneID="hdt-Gd-qba">
+            <objects>
+                <viewController id="awR-qO-nat" customClass="PreScanner" customModule="ScannerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oRQ-Gr-ws0"/>
+                        <viewControllerLayoutGuide type="bottom" id="pqe-GY-N7P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UPo-Dc-RPL">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="541"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dB-EY-CWz">
+                                <rect key="frame" x="73" y="14" width="197" height="69"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="50"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.81568627449999997" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCb-aO-CiU">
+                                <rect key="frame" x="96" y="195" width="150" height="150"/>
+                                <color key="tintColor" red="0.99215686270000003" green="0.81568627449999997" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="focus"/>
+                                <connections>
+                                    <segue destination="f1O-Ws-rj2" kind="show" id="JIW-PJ-den"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.36470588240000001" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rCb-aO-CiU" firstAttribute="centerY" secondItem="UPo-Dc-RPL" secondAttribute="centerY" id="09d-xk-ACh"/>
+                            <constraint firstItem="7dB-EY-CWz" firstAttribute="centerX" secondItem="rCb-aO-CiU" secondAttribute="centerX" id="164-hc-iOv"/>
+                            <constraint firstItem="rCb-aO-CiU" firstAttribute="centerX" secondItem="UPo-Dc-RPL" secondAttribute="centerX" id="8v8-gD-xEc"/>
+                            <constraint firstItem="7dB-EY-CWz" firstAttribute="top" secondItem="oRQ-Gr-ws0" secondAttribute="bottom" constant="14" id="rck-B8-szp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81I-vN-zAE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="27"/>
+        </scene>
+        <!--Barcode Scanner-->
+        <scene sceneID="4zs-ca-tn4">
+            <objects>
+                <viewController id="f1O-Ws-rj2" customClass="BarcodeScanner" customModule="ScannerList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="acE-NQ-S9e"/>
+                        <viewControllerLayoutGuide type="bottom" id="QPu-Tn-WsS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mCk-yO-Qy5">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="541"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gG-MB-vx6">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avl-aq-2hh">
+                                        <rect key="frame" x="149" y="23" width="45" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mb-Ex-8zh">
+                                        <rect key="frame" x="15" y="24" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="6T7-7C-gpp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="cross"/>
+                                        <connections>
+                                            <segue destination="CBR-P7-iMc" kind="unwind" unwindAction="unwindToHomeScreenWithSegue:" id="q65-MO-oYL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="4Mb-Ex-8zh" firstAttribute="top" secondItem="3gG-MB-vx6" secondAttribute="top" constant="24" id="3R0-on-cik"/>
+                                    <constraint firstItem="4Mb-Ex-8zh" firstAttribute="leading" secondItem="3gG-MB-vx6" secondAttribute="leading" constant="15" id="Ve4-WP-sH9"/>
+                                    <constraint firstAttribute="height" constant="55" id="blJ-U0-Hco"/>
+                                    <constraint firstAttribute="bottom" secondItem="avl-aq-2hh" secondAttribute="bottom" constant="8" id="dbs-Lf-nhp"/>
+                                    <constraint firstItem="avl-aq-2hh" firstAttribute="centerX" secondItem="3gG-MB-vx6" secondAttribute="centerX" id="ls6-0p-0cz"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Mb-Ex-8zh" secondAttribute="bottom" constant="13" id="wGT-oc-Rjx"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lc-Xo-bD9">
+                                <rect key="frame" x="0.0" y="501" width="343" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lGH-qb-Qbw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3gG-MB-vx6" firstAttribute="leading" secondItem="mCk-yO-Qy5" secondAttribute="leading" id="0Xe-Ar-SYr"/>
+                            <constraint firstItem="QPu-Tn-WsS" firstAttribute="top" secondItem="5Lc-Xo-bD9" secondAttribute="bottom" id="EKW-Bn-2Lx"/>
+                            <constraint firstItem="3gG-MB-vx6" firstAttribute="top" secondItem="mCk-yO-Qy5" secondAttribute="top" id="KVT-Vz-qhd"/>
+                            <constraint firstAttribute="trailing" secondItem="5Lc-Xo-bD9" secondAttribute="trailing" id="Nkb-sb-aar"/>
+                            <constraint firstItem="5Lc-Xo-bD9" firstAttribute="leading" secondItem="mCk-yO-Qy5" secondAttribute="leading" id="OJR-hV-AK9"/>
+                            <constraint firstAttribute="trailing" secondItem="3gG-MB-vx6" secondAttribute="trailing" id="V4i-JT-Z1m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="5Lc-Xo-bD9" id="f1Z-RI-W1v"/>
+                        <outlet property="topbar" destination="3gG-MB-vx6" id="jK9-e9-pNS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4F-FC-7gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CBR-P7-iMc" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3519" y="29"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Check" width="60" height="60"/>
         <image name="Grey Check" width="60" height="60"/>
+        <image name="cross" width="40" height="40"/>
+        <image name="focus" width="150" height="150"/>
     </resources>
 </document>

@@ -8,17 +8,42 @@
 
 import UIKit
 
+let notificationQueue = OperationQueue()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // MARK: - Functions
 
+    // MARK: - Functions: UIApplicationDelegate
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // Register observer notifications for list titles.
+        
+        NotificationCenter.default.addObserver(forName: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
+                                               object: NotificationCenter.default,
+                                               queue: notificationQueue) { notification in
+                                                
+                                                // resolve potential conflicts...
+                                                if let _ = UserDefaults().array(forKey: titlesKey) {
+                                                    // if there is a cloud value, it always overrides local...
+                                                    if let cloudValue = NSUbiquitousKeyValueStore().array(forKey: titlesKey) {
+                                                        // overwrites 'titlesKey' key-value from cloud
+                                                        UserDefaults().set(cloudValue, forKey: titlesKey)
+                                                    }
+                                                } else {
+                                                    // Initializes empty 'titlesKey' key-value from default
+                                                    UserDefaults().set([defaultTitle], forKey: titlesKey)
+                                                }
+        }
+        
         // Override point for customization after application launch.
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

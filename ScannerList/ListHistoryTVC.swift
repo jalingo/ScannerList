@@ -10,7 +10,8 @@ import UIKit
 
 // MARK: - GlobalConstants
 
-let titlesKey = "ListTitlesKey"
+let titlesKey    = "ListTitlesKey"
+let defaultTitle = "My First List"
 
 // MARK: - Protocols
 
@@ -47,7 +48,7 @@ class ListHistoryTVC: UITableViewController, ListHistory {
     fileprivate func resetLists() {
         guard lists.count == 0 else { return }
 
-        lists.append("My First List")
+        lists.append(defaultTitle)
         self.navigationController?.setEditing(false, animated: true)
         editingEnabled = false
     }
@@ -96,24 +97,30 @@ extension ListHistoryTVC {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addButtonTapped))
         self.navigationItem.rightBarButtonItem = addButton
         
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.alternateEditingEnabled))
-        self.navigationItem.leftBarButtonItem = cancelButton
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.alternateEditingEnabled))
+        self.navigationItem.leftBarButtonItem = doneButton
     }
     
+    /// Recovers list titles with priority to those stored in the cloud and local as a backup.
     fileprivate func recoverListTitles() {
-        if let titles = UserDefaults().array(forKey: titlesKey) as? [String] {
-            self.lists = titles
+        
+        if let cloudTitles = NSUbiquitousKeyValueStore().array(forKey: titlesKey) as? [String] {
+            self.lists = cloudTitles
+        } else if let localTitles = UserDefaults().array(forKey: titlesKey) as? [String] {
+            self.lists = localTitles
         }
         
-        resetLists()    // <-- Deals with empty arrays of titles.
+        resetLists()    // <-- Deals with empty arrays of titles after recovery.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         replaceListTitles()
     }
     
+    /// Stores currently displayed list titles both locally and in the cloud.
     fileprivate func replaceListTitles() {
         UserDefaults().set(self.lists, forKey: titlesKey)
+        NSUbiquitousKeyValueStore().set(lists, forKey: titlesKey)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -165,8 +172,8 @@ extension ListHistoryTVC {
         guard selectedIndex != nil else { return }
         
         let alertController = UIAlertController(title: "Rename: \(lists[selectedIndex!])",
-            message: nil,
-            preferredStyle: .alert)
+                                                message: nil,
+                                                preferredStyle: .alert)
         
         let okay = UIAlertAction(title: "Change", style: .default) { [weak self] action in
             if let me = self {

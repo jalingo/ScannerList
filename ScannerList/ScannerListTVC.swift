@@ -38,7 +38,6 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     var selectedIndex: Int?
 
-    //setup data model
     var entries = [defaultEntry] {
         didSet { self.tableView.reloadData() }
     }

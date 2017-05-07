@@ -31,6 +31,50 @@
 		DC31733F1E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
 		DC3173411E91D60700AE4921 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */; };
+		DC81F7FD1EBE6F8B00253D2A /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7CF1EBE6F8B00253D2A /* AlertMessage.swift */; };
+		DC81F7FE1EBE6F8B00253D2A /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7CF1EBE6F8B00253D2A /* AlertMessage.swift */; };
+		DC81F8031EBE6F8B00253D2A /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7D21EBE6F8B00253D2A /* AuthenticationError.swift */; };
+		DC81F8041EBE6F8B00253D2A /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7D21EBE6F8B00253D2A /* AuthenticationError.swift */; };
+		DC81F8091EBE6F8B00253D2A /* BatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7D71EBE6F8B00253D2A /* BatchError.swift */; };
+		DC81F80A1EBE6F8B00253D2A /* BatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7D71EBE6F8B00253D2A /* BatchError.swift */; };
+		DC81F80B1EBE6F8B00253D2A /* BatchFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7D81EBE6F8B00253D2A /* BatchFailed.swift */; };
+		DC81F80C1EBE6F8B00253D2A /* BatchFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7D81EBE6F8B00253D2A /* BatchFailed.swift */; };
+		DC81F80F1EBE6F8C00253D2A /* CKErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7DA1EBE6F8B00253D2A /* CKErrorHandler.swift */; };
+		DC81F8101EBE6F8C00253D2A /* CKErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7DA1EBE6F8B00253D2A /* CKErrorHandler.swift */; };
+		DC81F8111EBE6F8C00253D2A /* CloudDisabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7DB1EBE6F8B00253D2A /* CloudDisabler.swift */; };
+		DC81F8121EBE6F8C00253D2A /* CloudDisabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7DB1EBE6F8B00253D2A /* CloudDisabler.swift */; };
+		DC81F8131EBE6F8C00253D2A /* CloudQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7DC1EBE6F8B00253D2A /* CloudQueue.swift */; };
+		DC81F8141EBE6F8C00253D2A /* CloudQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7DC1EBE6F8B00253D2A /* CloudQueue.swift */; };
+		DC81F81F1EBE6F8C00253D2A /* DeleteRecordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E21EBE6F8B00253D2A /* DeleteRecordable.swift */; };
+		DC81F8201EBE6F8C00253D2A /* DeleteRecordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E21EBE6F8B00253D2A /* DeleteRecordable.swift */; };
+		DC81F8211EBE6F8C00253D2A /* DisableCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E31EBE6F8B00253D2A /* DisableCloud.swift */; };
+		DC81F8221EBE6F8C00253D2A /* DisableCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E31EBE6F8B00253D2A /* DisableCloud.swift */; };
+		DC81F8291EBE6F8C00253D2A /* ErrorQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E71EBE6F8B00253D2A /* ErrorQueue.swift */; };
+		DC81F82A1EBE6F8C00253D2A /* ErrorQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E71EBE6F8B00253D2A /* ErrorQueue.swift */; };
+		DC81F82D1EBE6F8C00253D2A /* FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E91EBE6F8B00253D2A /* FatalError.swift */; };
+		DC81F82E1EBE6F8C00253D2A /* FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7E91EBE6F8B00253D2A /* FatalError.swift */; };
+		DC81F8351EBE6F8C00253D2A /* GetCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7ED1EBE6F8B00253D2A /* GetCreator.swift */; };
+		DC81F8361EBE6F8C00253D2A /* GetCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7ED1EBE6F8B00253D2A /* GetCreator.swift */; };
+		DC81F8391EBE6F8C00253D2A /* LimitExceeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7EF1EBE6F8B00253D2A /* LimitExceeded.swift */; };
+		DC81F83A1EBE6F8C00253D2A /* LimitExceeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7EF1EBE6F8B00253D2A /* LimitExceeded.swift */; };
+		DC81F83F1EBE6F8C00253D2A /* PartialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F21EBE6F8B00253D2A /* PartialError.swift */; };
+		DC81F8401EBE6F8C00253D2A /* PartialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F21EBE6F8B00253D2A /* PartialError.swift */; };
+		DC81F8411EBE6F8C00253D2A /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F31EBE6F8B00253D2A /* Pause.swift */; };
+		DC81F8421EBE6F8C00253D2A /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F31EBE6F8B00253D2A /* Pause.swift */; };
+		DC81F8451EBE6F8C00253D2A /* Recordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F51EBE6F8B00253D2A /* Recordable.swift */; };
+		DC81F8461EBE6F8C00253D2A /* Recordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F51EBE6F8B00253D2A /* Recordable.swift */; };
+		DC81F8471EBE6F8C00253D2A /* RetriableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F61EBE6F8B00253D2A /* RetriableError.swift */; };
+		DC81F8481EBE6F8C00253D2A /* RetriableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F61EBE6F8B00253D2A /* RetriableError.swift */; };
+		DC81F84D1EBE6F8C00253D2A /* TestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F91EBE6F8B00253D2A /* TestQueue.swift */; };
+		DC81F84E1EBE6F8C00253D2A /* TestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7F91EBE6F8B00253D2A /* TestQueue.swift */; };
+		DC81F8511EBE6F8C00253D2A /* VersionConflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7FB1EBE6F8B00253D2A /* VersionConflict.swift */; };
+		DC81F8521EBE6F8C00253D2A /* VersionConflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F7FB1EBE6F8B00253D2A /* VersionConflict.swift */; };
+		DC81F85A1EBE816300253D2A /* RecordableEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F8591EBE816300253D2A /* RecordableEntry.swift */; };
+		DC81F85B1EBE816300253D2A /* RecordableEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F8591EBE816300253D2A /* RecordableEntry.swift */; };
+		DC81F85D1EBE85B900253D2A /* DownloadRecordables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F85C1EBE85B900253D2A /* DownloadRecordables.swift */; };
+		DC81F85E1EBE85B900253D2A /* DownloadRecordables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F85C1EBE85B900253D2A /* DownloadRecordables.swift */; };
+		DC81F8631EBE99EB00253D2A /* UploadRecordables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F8621EBE99EB00253D2A /* UploadRecordables.swift */; };
+		DC81F8641EBE99EB00253D2A /* UploadRecordables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81F8621EBE99EB00253D2A /* UploadRecordables.swift */; };
 		DCE3C4891E97476B00E37898 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE3C4881E97476B00E37898 /* CloudKit.framework */; };
 		DCF0362D1E9C70A400BA06A0 /* PreScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */; };
 		DCF0362E1E9C70A400BA06A0 /* PreScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */; };
@@ -85,6 +129,28 @@
 		DC1AC9C21E90E52B00CEF1A0 /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		DC31733A1E91D3B100AE4921 /* PriceInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceInputView.swift; sourceTree = "<group>"; };
 		DC31733E1E91D60700AE4921 /* BarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScanner.swift; sourceTree = "<group>"; };
+		DC81F7CF1EBE6F8B00253D2A /* AlertMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		DC81F7D21EBE6F8B00253D2A /* AuthenticationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
+		DC81F7D71EBE6F8B00253D2A /* BatchError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchError.swift; sourceTree = "<group>"; };
+		DC81F7D81EBE6F8B00253D2A /* BatchFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchFailed.swift; sourceTree = "<group>"; };
+		DC81F7DA1EBE6F8B00253D2A /* CKErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKErrorHandler.swift; sourceTree = "<group>"; };
+		DC81F7DB1EBE6F8B00253D2A /* CloudDisabler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDisabler.swift; sourceTree = "<group>"; };
+		DC81F7DC1EBE6F8B00253D2A /* CloudQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudQueue.swift; sourceTree = "<group>"; };
+		DC81F7E21EBE6F8B00253D2A /* DeleteRecordable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteRecordable.swift; sourceTree = "<group>"; };
+		DC81F7E31EBE6F8B00253D2A /* DisableCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisableCloud.swift; sourceTree = "<group>"; };
+		DC81F7E71EBE6F8B00253D2A /* ErrorQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorQueue.swift; sourceTree = "<group>"; };
+		DC81F7E91EBE6F8B00253D2A /* FatalError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatalError.swift; sourceTree = "<group>"; };
+		DC81F7ED1EBE6F8B00253D2A /* GetCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCreator.swift; sourceTree = "<group>"; };
+		DC81F7EF1EBE6F8B00253D2A /* LimitExceeded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimitExceeded.swift; sourceTree = "<group>"; };
+		DC81F7F21EBE6F8B00253D2A /* PartialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialError.swift; sourceTree = "<group>"; };
+		DC81F7F31EBE6F8B00253D2A /* Pause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
+		DC81F7F51EBE6F8B00253D2A /* Recordable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recordable.swift; sourceTree = "<group>"; };
+		DC81F7F61EBE6F8B00253D2A /* RetriableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetriableError.swift; sourceTree = "<group>"; };
+		DC81F7F91EBE6F8B00253D2A /* TestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestQueue.swift; sourceTree = "<group>"; };
+		DC81F7FB1EBE6F8B00253D2A /* VersionConflict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionConflict.swift; sourceTree = "<group>"; };
+		DC81F8591EBE816300253D2A /* RecordableEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordableEntry.swift; path = ../../Documents/Projects/Dev/Swift/ScannerList/ScannerList/RecordableEntry.swift; sourceTree = "<group>"; };
+		DC81F85C1EBE85B900253D2A /* DownloadRecordables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRecordables.swift; sourceTree = "<group>"; };
+		DC81F8621EBE99EB00253D2A /* UploadRecordables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadRecordables.swift; path = ScannerList/UploadRecordables.swift; sourceTree = SOURCE_ROOT; };
 		DCE3C4861E97475600E37898 /* ScannerList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScannerList.entitlements; sourceTree = "<group>"; };
 		DCE3C4881E97476B00E37898 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DCF0362C1E9C70A400BA06A0 /* PreScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreScanner.swift; sourceTree = "<group>"; };
@@ -163,10 +229,9 @@
 			children = (
 				DCE3C4861E97475600E37898 /* ScannerList.entitlements */,
 				DC1AC9B91E90E48B00CEF1A0 /* Assets */,
-				DC1AC98F1E90DED800CEF1A0 /* Main.storyboard */,
-				DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */,
-				DC3173391E91C7FF00AE4921 /* ScannerList */,
-				DC97A9051E9704FE000623F6 /* PriceInput */,
+				DC81F8581EBE778800253D2A /* User Interface */,
+				DC81F7CE1EBE6F8B00253D2A /* CloudKit */,
+				DC81F8651EBE9B4300253D2A /* Deprecated */,
 			);
 			path = ScannerList;
 			sourceTree = "<group>";
@@ -208,6 +273,95 @@
 				DC1AC9C21E90E52B00CEF1A0 /* EntryCell.swift */,
 			);
 			name = ScannerList;
+			sourceTree = "<group>";
+		};
+		DC81F7CE1EBE6F8B00253D2A /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				DC81F8591EBE816300253D2A /* RecordableEntry.swift */,
+				DC81F8551EBE70DD00253D2A /* Protocols */,
+				DC81F8531EBE70C300253D2A /* Operations */,
+				DC81F8541EBE70D000253D2A /* Queues */,
+			);
+			name = CloudKit;
+			path = ../../../../../../Voyager/Voyage01;
+			sourceTree = "<group>";
+		};
+		DC81F8531EBE70C300253D2A /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				DC81F8621EBE99EB00253D2A /* UploadRecordables.swift */,
+				DC81F85C1EBE85B900253D2A /* DownloadRecordables.swift */,
+				DC81F7E21EBE6F8B00253D2A /* DeleteRecordable.swift */,
+				DC81F7ED1EBE6F8B00253D2A /* GetCreator.swift */,
+				DC81F7E31EBE6F8B00253D2A /* DisableCloud.swift */,
+				DC81F8571EBE75BE00253D2A /* Generic (non-cloud) */,
+				DC81F8561EBE75A900253D2A /* Error Handling */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		DC81F8541EBE70D000253D2A /* Queues */ = {
+			isa = PBXGroup;
+			children = (
+				DC81F7DC1EBE6F8B00253D2A /* CloudQueue.swift */,
+				DC81F7E71EBE6F8B00253D2A /* ErrorQueue.swift */,
+				DC81F7F91EBE6F8B00253D2A /* TestQueue.swift */,
+			);
+			name = Queues;
+			sourceTree = "<group>";
+		};
+		DC81F8551EBE70DD00253D2A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DC81F7F51EBE6F8B00253D2A /* Recordable.swift */,
+				DC81F7DB1EBE6F8B00253D2A /* CloudDisabler.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		DC81F8561EBE75A900253D2A /* Error Handling */ = {
+			isa = PBXGroup;
+			children = (
+				DC81F7D21EBE6F8B00253D2A /* AuthenticationError.swift */,
+				DC81F7D71EBE6F8B00253D2A /* BatchError.swift */,
+				DC81F7D81EBE6F8B00253D2A /* BatchFailed.swift */,
+				DC81F7DA1EBE6F8B00253D2A /* CKErrorHandler.swift */,
+				DC81F7E91EBE6F8B00253D2A /* FatalError.swift */,
+				DC81F7EF1EBE6F8B00253D2A /* LimitExceeded.swift */,
+				DC81F7F21EBE6F8B00253D2A /* PartialError.swift */,
+				DC81F7F61EBE6F8B00253D2A /* RetriableError.swift */,
+				DC81F7FB1EBE6F8B00253D2A /* VersionConflict.swift */,
+			);
+			name = "Error Handling";
+			sourceTree = "<group>";
+		};
+		DC81F8571EBE75BE00253D2A /* Generic (non-cloud) */ = {
+			isa = PBXGroup;
+			children = (
+				DC81F7CF1EBE6F8B00253D2A /* AlertMessage.swift */,
+				DC81F7F31EBE6F8B00253D2A /* Pause.swift */,
+			);
+			name = "Generic (non-cloud)";
+			sourceTree = "<group>";
+		};
+		DC81F8581EBE778800253D2A /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				DC1AC98F1E90DED800CEF1A0 /* Main.storyboard */,
+				DCFB796A1E923A95007C141E /* ListHistoryTVC.swift */,
+				DC3173391E91C7FF00AE4921 /* ScannerList */,
+				DC97A9051E9704FE000623F6 /* PriceInput */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		DC81F8651EBE9B4300253D2A /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Deprecated;
+			path = ../../../../../../Voyager/Voyage01;
 			sourceTree = "<group>";
 		};
 		DC97A9051E9704FE000623F6 /* PriceInput */ = {
@@ -524,15 +678,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC81F8471EBE6F8C00253D2A /* RetriableError.swift in Sources */,
+				DC81F8211EBE6F8C00253D2A /* DisableCloud.swift in Sources */,
+				DC81F85D1EBE85B900253D2A /* DownloadRecordables.swift in Sources */,
+				DC81F8131EBE6F8C00253D2A /* CloudQueue.swift in Sources */,
 				DCF036311E9CBF8E00BA06A0 /* DataService.swift in Sources */,
+				DC81F8291EBE6F8C00253D2A /* ErrorQueue.swift in Sources */,
+				DC81F8391EBE6F8C00253D2A /* LimitExceeded.swift in Sources */,
+				DC81F8111EBE6F8C00253D2A /* CloudDisabler.swift in Sources */,
 				DC1AC9C31E90E52B00CEF1A0 /* EntryCell.swift in Sources */,
+				DC81F84D1EBE6F8C00253D2A /* TestQueue.swift in Sources */,
 				DC1AC9BB1E90E4D300CEF1A0 /* ScannerListTVC.swift in Sources */,
 				DC1AC9BF1E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
+				DC81F80F1EBE6F8C00253D2A /* CKErrorHandler.swift in Sources */,
+				DC81F8631EBE99EB00253D2A /* UploadRecordables.swift in Sources */,
+				DC81F82D1EBE6F8C00253D2A /* FatalError.swift in Sources */,
 				DC31733F1E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
+				DC81F8511EBE6F8C00253D2A /* VersionConflict.swift in Sources */,
 				DCF0362D1E9C70A400BA06A0 /* PreScanner.swift in Sources */,
+				DC81F8091EBE6F8B00253D2A /* BatchError.swift in Sources */,
+				DC81F7FD1EBE6F8B00253D2A /* AlertMessage.swift in Sources */,
+				DC81F83F1EBE6F8C00253D2A /* PartialError.swift in Sources */,
+				DC81F8351EBE6F8C00253D2A /* GetCreator.swift in Sources */,
+				DC81F8411EBE6F8C00253D2A /* Pause.swift in Sources */,
+				DC81F80B1EBE6F8B00253D2A /* BatchFailed.swift in Sources */,
 				DC1AC98C1E90DED800CEF1A0 /* AppDelegate.swift in Sources */,
 				DCFB796B1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
+				DC81F85A1EBE816300253D2A /* RecordableEntry.swift in Sources */,
+				DC81F8031EBE6F8B00253D2A /* AuthenticationError.swift in Sources */,
 				DC31733B1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
+				DC81F8451EBE6F8C00253D2A /* Recordable.swift in Sources */,
+				DC81F81F1EBE6F8C00253D2A /* DeleteRecordable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,15 +716,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC81F8481EBE6F8C00253D2A /* RetriableError.swift in Sources */,
+				DC81F8221EBE6F8C00253D2A /* DisableCloud.swift in Sources */,
+				DC81F85E1EBE85B900253D2A /* DownloadRecordables.swift in Sources */,
+				DC81F8141EBE6F8C00253D2A /* CloudQueue.swift in Sources */,
 				DCF036321E9CBF8E00BA06A0 /* DataService.swift in Sources */,
+				DC81F82A1EBE6F8C00253D2A /* ErrorQueue.swift in Sources */,
+				DC81F83A1EBE6F8C00253D2A /* LimitExceeded.swift in Sources */,
+				DC81F8121EBE6F8C00253D2A /* CloudDisabler.swift in Sources */,
 				DC1AC9C41E90E52B00CEF1A0 /* EntryCell.swift in Sources */,
+				DC81F84E1EBE6F8C00253D2A /* TestQueue.swift in Sources */,
 				DC1AC9BC1E90E4D300CEF1A0 /* ScannerListTVC.swift in Sources */,
 				DC1AC9C01E90E51600CEF1A0 /* TotalsCell.swift in Sources */,
+				DC81F8101EBE6F8C00253D2A /* CKErrorHandler.swift in Sources */,
+				DC81F8641EBE99EB00253D2A /* UploadRecordables.swift in Sources */,
+				DC81F82E1EBE6F8C00253D2A /* FatalError.swift in Sources */,
 				DC3173401E91D60700AE4921 /* BarcodeScanner.swift in Sources */,
+				DC81F8521EBE6F8C00253D2A /* VersionConflict.swift in Sources */,
 				DCF0362E1E9C70A400BA06A0 /* PreScanner.swift in Sources */,
+				DC81F80A1EBE6F8B00253D2A /* BatchError.swift in Sources */,
+				DC81F7FE1EBE6F8B00253D2A /* AlertMessage.swift in Sources */,
+				DC81F8401EBE6F8C00253D2A /* PartialError.swift in Sources */,
+				DC81F8361EBE6F8C00253D2A /* GetCreator.swift in Sources */,
+				DC81F8421EBE6F8C00253D2A /* Pause.swift in Sources */,
+				DC81F80C1EBE6F8B00253D2A /* BatchFailed.swift in Sources */,
 				DC1AC9A11E90DED900CEF1A0 /* ScannerListTests.swift in Sources */,
 				DCFB796C1E923A95007C141E /* ListHistoryTVC.swift in Sources */,
+				DC81F85B1EBE816300253D2A /* RecordableEntry.swift in Sources */,
+				DC81F8041EBE6F8B00253D2A /* AuthenticationError.swift in Sources */,
 				DC31733C1E91D3B100AE4921 /* PriceInputView.swift in Sources */,
+				DC81F8461EBE6F8C00253D2A /* Recordable.swift in Sources */,
+				DC81F8201EBE6F8C00253D2A /* DeleteRecordable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CloudKit
+
+// MARK: - Global Vars
 
 let defaultEntry: Entry = ("Tap to Edit Text...", false, 0)
 
@@ -44,6 +47,12 @@ class ScannerListTVC: UITableViewController, ScannerList {
     
     @IBOutlet weak var navBarTitle: UINavigationItem!
     
+    // MARK: - Properties: RecievesRecordable
+    
+    var allowComponentsDidSetToUploadDataModel = false
+    
+    var components = [Recordable]()
+    
     // MARK: - Functions
     
     @IBAction func addEntryTapped(_ sender: UIBarButtonItem) {
@@ -61,13 +70,21 @@ class ScannerListTVC: UITableViewController, ScannerList {
 
 extension ScannerListTVC {
     
+    override func viewDidLoad() {
+        recoverEntriesForTitle()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        restoreEntriesForTitle()
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
  
         // Should not be queried when 'rightBarButtonPressed' triggers manual push...
         guard identifier != "listToHistory" else { return true }
         
-        //
+        // Ensures a cell has been selected...
         guard selectedIndex != nil else { return false }
         
         // This seems to return the opposite, but value is changed before method called.
@@ -141,9 +158,21 @@ print("moveRowAt (scannerListTVC)")
     }
 }
 
+// MARK: - Extension: CloudKit
 
-
-
-
-
-
+extension ScannerListTVC: RecievesRecordable {
+    
+    fileprivate func recoverEntriesForTitle() {
+        guard let title = listTitle else { return }
+        
+        let database = CKContainer.default().privateCloudDatabase
+        let downloadOp = DownloadRecordable(type: ENTRY_REC_TYPE, to: self, from: database)
+        let queue = CloudQueue()
+        queue.addOperation(downloadOp)
+    }
+    
+    fileprivate func restoreEntriesForTitle() {
+        
+        
+    }
+}
